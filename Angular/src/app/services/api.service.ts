@@ -9,7 +9,8 @@ import 'rxjs/add/operator/map';
 export class ApiService {
 
   private _getPlayersurl="/api/playertype";
-  private addplayerurl = "/api/addplayer";
+  private _addplayerurl = "/api/addplayer";
+  private _deleteplayerurl = "/api/deleteplayer";
    playerType: IPlayerType[] = [];
 
  constructor(private _http: Http) { }
@@ -35,14 +36,33 @@ export class ApiService {
                  return Observable.throw(new Error(error.status));
             });
   }
-    addPlayer(data){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/JSON');
-    return this._http.post(this.addplayerurl, data, {headers:headers})
-            .map((res: Response) =>{
-                    return res;
-                }).catch((error: any) => {
-                 return Observable.throw(new Error(error.status));
-            });  
-    }
+
+/*Add player API*/
+addPlayer(data){
+let headers = new Headers();
+headers.append('Content-Type', 'application/JSON');
+return this._http.post(this._addplayerurl, data, {headers:headers})
+        .map((res: Response) =>{
+                return res;
+            }).catch((error: any) => {
+              return Observable.throw(new Error(error.status));
+        });  
+}
+
+/*Delete player API*/
+deletePlayer(data){
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/JSON');
+  let options = new RequestOptions({
+    headers: headers,
+    body : data
+  });
+
+  return this._http.delete(this._deleteplayerurl, options)
+      .map((res: Response) =>{
+              return res;
+          }).catch((error: any) => {
+            return Observable.throw(new Error(error.status));
+      });
+}
 }

@@ -34,11 +34,26 @@ export class CricketerListAss1Component implements OnInit {
     this.getCricketers();
     this.searchData = '';
   }
+
+  /*call the http get api from api.service*/
   getCricketers(){
     this._api.fetchDataFromnode().subscribe(
       (data) => {
         this.criketerDetail = data;
-        console.log(data);
     });
+  }
+
+  /*call the http delete api from api.service*/
+  deletePlayer(id){
+    var body = {"id":id};
+    this._api.deletePlayer(body).subscribe(
+      (res) => {
+        if (res.status == 200) {
+          alert('Player deleted Succesfully..');
+          this.router.navigate(['/ass1/list']);
+        }
+      },(err) => {
+        alert('Error to connect to server');
+      });
   }
 }

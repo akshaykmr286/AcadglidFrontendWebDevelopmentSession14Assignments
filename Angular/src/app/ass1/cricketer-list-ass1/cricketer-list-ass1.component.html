@@ -34,7 +34,11 @@
                                                 </h4>
 
                                                 <div class="media-body">
-                                                    <span class="media-meta pull-right">{{criketerList?.favShot}}</span>
+                                                    <span class="media-meta pull-right">{{criketerList?.favShot}}
+                                                        <a [id]='criketerList.id' class="btn btn-danger btn-sm" href="#" (click)="deletePlayer(criketerList.id)">
+                                                            <span class="glyphicon glyphicon-trash"></span> Delete 
+                                                        </a>
+                                                    </span>
                                                     <!--1.2-4 Decimal value before the (.) and after and the digits to display-->
                                                     <span class="media-meta pull-down">{{criketerList?.yearlyIncome  | currency : "INR" : false: "1.2-4"  }}</span>
                                                     <p class="summary" appMyHighlighter>{{criketerList?.playerType}}</p>
