@@ -50,6 +50,14 @@ app.post('/addplayer', function (req, res) {
 	});
 });
 
+/*rest api to delete record from mysql database*/
+app.delete('/deleteplayer', function (req, res) {
+   //console.log(req.body);
+   db.query('DELETE FROM `playerlist` WHERE `id`=?', [req.body.id], function (error, results, fields) {
+	  if (error) throw error;
+	  res.end('Record has been deleted!');
+	});
+});
 /*running the node server in 3030 port*/
 app.listen('3030',() => {
     console.log('Server started on 3030');
