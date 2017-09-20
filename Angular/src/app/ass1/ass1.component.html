@@ -1,0 +1,27 @@
+<h5 class="red bold">CLICK ON THE LINKS IN SUBMENU BELOW TO ADD PLAYER AND SEE PLAYER LISTS......</h5>
+<nav class="navbar navbar-default" style="background-color:aquamarine;color:brown;font-weight:bold;margin:0%">
+  <div class="container-fluid">
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['add']">Add a Cricketer <span class="sr-only">(current)</span></a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['list']">Cricketers List</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="container brown bold">
+    <h5 class="bold">NOTE:</h5>
+    <h5 class="bold">1. The http get and post are implemented usins <span class="red">"NODE SERVER and MYSQL"</span></h5>
+    <h5 class="bold">2. <span class="red">"Make sure you have your Mysql server and node server is running"</span></h5>
+    <h5 class="bold">3. <span class="red">"Please follow the readme.txt file for set up"</span></h5>
+  </div>
+
+  <br>
+  <router-outlet></router-outlet>
+</div>

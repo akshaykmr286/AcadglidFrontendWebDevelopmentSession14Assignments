@@ -1,0 +1,12 @@
+[{
+      "id": 1,
+      "type": "Batsman"
+    },
+    {
+      "id": 2,
+      "type": "Bowler"
+    }, {
+      "id": 3,
+      "type": "Wicket Keeper"
+    }
+]
